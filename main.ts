@@ -1,33 +1,28 @@
 radio.onReceivedNumber(function (receivedNumber) {
+    basic.clearScreen()
     if (receivedNumber == 1) {
-        basic.clearScreen()
-        led.plot(0, 2)
-        pins.analogWritePin(AnalogPin.P12, 1023)
+        pins.analogWritePin(AnalogPin.P8, 256)
         pins.analogWritePin(AnalogPin.P16, 0)
-        basic.pause(1000)
-        pins.analogWritePin(AnalogPin.P12, 0)
-        pins.analogWritePin(AnalogPin.P16, 0)
-    } else if (receivedNumber == 2) {
-        basic.clearScreen()
         led.plot(4, 2)
-        pins.analogWritePin(AnalogPin.P12, 0)
-        pins.analogWritePin(AnalogPin.P16, 1023)
-        basic.pause(1000)
-        pins.analogWritePin(AnalogPin.P12, 0)
-        pins.analogWritePin(AnalogPin.P16, 0)
+    } else if (receivedNumber == 2) {
+        pins.analogWritePin(AnalogPin.P8, 0)
+        pins.analogWritePin(AnalogPin.P16, 256)
+        led.plot(0, 2)
     } else if (receivedNumber == 3) {
-        basic.clearScreen()
+        pins.analogWritePin(AnalogPin.P8, 256)
+        pins.analogWritePin(AnalogPin.P16, 256)
         led.plot(2, 4)
-        pins.analogWritePin(AnalogPin.P12, 1023)
-        pins.analogWritePin(AnalogPin.P16, 1023)
-        basic.pause(1000)
-        pins.analogWritePin(AnalogPin.P12, 0)
+    } else if (receivedNumber == 0) {
+        pins.analogWritePin(AnalogPin.P8, 0)
         pins.analogWritePin(AnalogPin.P16, 0)
+        led.plot(2, 2)
     } else {
     	
     }
 })
 radio.setGroup(8)
+let aa = 0
+let bb = 0
 basic.showLeds(`
     # # # . #
     # . . . .
@@ -35,3 +30,4 @@ basic.showLeds(`
     # . # . #
     # # # . #
     `)
+basic.pause(1000)
