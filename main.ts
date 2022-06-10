@@ -21,8 +21,6 @@ radio.onReceivedNumber(function (receivedNumber) {
     }
 })
 radio.setGroup(8)
-let aa = 0
-let bb = 0
 basic.showLeds(`
     # # # . #
     # . . . .
